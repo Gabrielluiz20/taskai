@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #E9ECE6;
+  background-image:
+    radial-gradient(circle, #d7dcd0 1px, transparent 1px);
+  background-size: 22px 22px;
+  font-family: 'Manrope', sans-serif;
+  color: #20323C;
+}
+
+.card-index {
+  background: #FFFDF8;
+  border: 1.5px dashed #C9CFC7;
+  box-shadow: 2px 3px 0 rgba(32, 50, 60, 0.06);
+}
+
+.stamp {
+  font-family: 'Space Mono', monospace;
+  letter-spacing: 0.06em;
+  border: 2px solid currentColor;
+  border-radius: 3px;
+  transform: rotate(-4deg);
+  mix-blend-mode: multiply;
+}
+
+.tab-header {
+  position: relative;
+}
+.tab-header::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 12px;
+  width: 46px;
+  height: 10px;
+  background: inherit;
+  border-radius: 4px 4px 0 0;
+}
