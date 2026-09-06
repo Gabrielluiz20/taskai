@@ -1,4 +1,8 @@
+import { useState } from 'react';
+
 export default function TaskCard({ tarefa, onMover, onSubirPrioridade }) {
+  const [mostrarJustificativa, setMostrarJustificativa] = useState(false);
+
   const proximaColuna = {
     a_fazer: 'fazendo',
     fazendo: 'em_teste',
@@ -31,6 +35,22 @@ export default function TaskCard({ tarefa, onMover, onSubirPrioridade }) {
           <span className="text-[10px] font-mono text-ink-light">#{tarefa.prioridade_manual}</span>
         )}
       </div>
+
+      {tarefa.prioridade_justificativa && (
+        <div className="mt-2">
+          <button
+            onClick={() => setMostrarJustificativa((v) => !v)}
+            className="text-[10px] text-ink-light underline hover:text-ink"
+          >
+            {mostrarJustificativa ? 'ocultar explicação da IA' : 'por que essa prioridade?'}
+          </button>
+          {mostrarJustificativa && (
+            <p className="text-[11px] text-ink-light italic mt-1 border-l-2 border-rule pl-2">
+              {tarefa.prioridade_justificativa}
+            </p>
+          )}
+        </div>
+      )}
 
       <div className="flex gap-2 mt-3">
         {proximaColuna && (
